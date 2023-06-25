@@ -1,0 +1,129 @@
+@charset "utf-8";
+/* CSS Document */
+
+ul {
+	list-style-type:none;
+	min-width: 80%;
+	margin:auto;
+	padding:0;
+}
+
+li {
+	display:inline-block;
+	float:center;
+	margin-right: 1px;
+}
+
+/* LIST STYLES ///////////////////////////////////////// */
+
+/*Style for menu links */
+li a {
+	display:block;
+	min-width: 250px;
+	height:50px;
+	text-align: center;
+	line-height: 50px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #fff;
+	background: #2f3036;
+	text-decoration:none;
+}
+
+ .button {
+        background-color: #000000;
+        color: #FFFFFF;
+        padding: 10px;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        margin:10px
+		
+    }
+    
+    .login {
+        width: 50px;
+        height: 25px;
+		text-align: center;
+    }
+
+table {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #fff;
+	background: #2f3036;
+	text-decoration:none;
+}
+
+li {
+	min-height: 50px;
+	
+	
+}
+
+/* Hover state for top level links */
+li:hover a {
+	background: #19c589;
+}
+
+/*  Style for dropdown links */
+li:hover ul a {
+	background: #f3f3f3;
+	color:#2f3036;
+	height:40px;
+	line-height:40px;
+}
+
+/* Hover state for dropdown links */
+li:hover ul a:hover  {
+	background: #19c589;
+	color:#fff;
+}
+
+
+
+form#signup div{
+	padding-bottom: 15px;	
+}
+
+form#signup .label {
+	display: block;
+	clear: left;
+	float: left;
+	width: 175px;
+	text-align: right;
+	padding: 7px 15px 0 0;
+	text-transform: uppercase;	
+	font-weight: bold;
+	color:#19c589;
+}
+
+form#signup .label {
+	width: 200px;	
+}
+
+.labelBlock {
+	text-transform: uppercase;
+	font-weight: bold;	
+	display: block;
+	padding-bottom: 0 !important;
+	clear: both;
+	margin-top: 10px;
+	color:#19c589;
+}
+
+form .indent, #submit {
+	margin-left: 215px;	
+	color:#19c859;
+}
+
+form#signup input[type="radio"] {
+   display: inline-block;
+   margin-top: 10px;
+	color:#19c589;
+}
+
+form#signup input[type="radio"], form#signup input[type="checkbox"] {
+   display: inline-block;
+   margin-top: 10px;
+	color:#19c589;
+}
+

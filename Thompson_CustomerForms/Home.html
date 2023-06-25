@@ -1,0 +1,570 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<link rel="stylesheet" type="text/css" href="thompson_project.css">
+<style>
+div {
+	width:100%;
+}
+
+#signup .indent label.error {
+  margin-left: 0;
+}
+#signup label.error {
+  font-size: 0.8em;
+  color: green;
+  font-weight: bold;
+
+}
+#signup  input.error, #signup select.error  {
+  background: #FFA9B8;
+  border: 1px solid red;
+}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+  padding-left:10px;
+   background-color:#2f3036
+  
+}
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background: #19c589;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+	color:white;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #19c589;
+}
+
+
+</style>
+<script src="jquery-1.7.2.min.js"></script>
+<script src="jquery.validate.min.js"></script>
+<script>
+$(document).ready(function() {
+ $('#signup').validate({
+   
+   rules: {
+     email: {
+        required: true,
+        email: true
+     },
+    
+   }, //end rules
+   messages: {
+      email: {
+         required: "Please supply an e-mail address.",
+         email: "This is not a valid email address."
+       },
+      
+      
+   },
+   errorPlacement: function(error, element) { 
+       if ( element.is(":radio") || element.is(":checkbox")) {
+          error.appendTo( element.parent()); 
+        } else {
+          error.insertAfter(element);
+        } 
+    } 
+
+  }); // end validate 
+}); // end read
+
+function sync()
+{
+  var n1 = document.getElementById('name1');
+  var n2 = document.getElementById('name2');
+  n2.value = n1.value;
+  
+  var l1 = document.getElementById('lastname1');
+  var l2 = document.getElementById('lastname2');
+  l2.value = l1.value;
+  
+  var house1 = document.getElementById('house1');
+  var house2 = document.getElementById('house2');
+  house2.value = house1.value;
+  
+  var street1 = document.getElementById('street1');
+  var street2 = document.getElementById('street2');
+  street2.value = street1.value;
+  
+  var city1 = document.getElementById('city1');
+  var city2 = document.getElementById('city2');
+  city2.value = city1.value;
+  
+  var state1 = document.getElementById('state1');
+  var state2 = document.getElementById('state2');
+  state2.value = state1.value;
+  
+  var zip1 = document.getElementById('zip1');
+  var zip2 = document.getElementById('zip2');
+  zip2.value = zip1.value;
+  
+  var contact1 = document.getElementById('contact1');
+  var contact2 = document.getElementById('contact2');
+  contact2.value = contact1.value;
+  
+  var email1 = document.getElementById('email1');
+  var email2 = document.getElementById('email2');
+  email2.value = email1.value;
+
+  var month1 = document.getElementById('month1');
+  var month2 = document.getElementById('month2');
+  month2.value = month1.value;
+  
+  var day1 = document.getElementById('day1');
+  var day2 = document.getElementById('day2');
+  day2.value = day1.value;
+  
+  var year1 = document.getElementById('year1');
+  var year2 = document.getElementById('year2');
+  year2.value = year1.value;
+  
+ 
+  var door1 = document.getElementById('door1');
+  var door2 = document.getElementById('door2');
+  door2.value = door1.value;
+  
+  var wid1 = document.getElementById('width1');
+  var wid2 = document.getElementById('width2');
+  wid2.value = wid1.value;
+  
+  var dep = document.getElementById('depth1');
+  var dep2 = document.getElementById('depth2');
+  dep2.value = dep1.value;
+  
+  var heig = document.getElementById('height1');
+  var heig2 = document.getElementById('height2');
+  heig2.value = heig1.value;
+  }
+	
+	
+var validNumber = new RegExp(/^\d*\.?\d*$/);
+var lastValid = document.getElementById("test1").value;
+function validateNumber(elem) {
+  if (validNumber.test(elem.value)) {
+    lastValid = elem.value;
+  } else {
+    elem.value = lastValid;
+  }
+}
+
+
+function show_alert() {
+  if(confirm("Do you really want to do this?"))
+    document.forms[0].submit();
+  else
+    return false;
+}
+
+
+function openCity(evt, cityName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+
+</script>
+
+</head>
+
+<body>
+
+<h1 style="background-color="2f3036">Estimator Application</h1>
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Customer Form</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')">Paint Form</button>
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Electronic Form</button>
+</div>
+
+<!-- Tab content -->
+<div id="London" class="tabcontent">
+  <div style="background-color:#2f3036">
+	<form action="process.html" method="post" name="signup" id="signup">
+	  <div>
+		<label for="name" class="label">First Name </label>
+		  <input name="name" type="text" class="required" id="name1" title="Please type the first name." onkeyup="sync()" pattern="[A-Za-z]{3}">
+		</div>
+	 
+	 <div>
+		<label for="name" class="label">Last Name </label>
+		  <input name="lastname" type="text" class="required" id="lastname1" title="Please type the last name." onkeyup="sync()">
+		</div>
+	 <div>
+		<label for="house" class="label">House Number</label>
+	 	<input name="house1" type="text" id="house1" class = "required" onkeyup="sync()" form="signup" title="Please add a house number for this customer." oninput="validateNumber(this);">
+	</div>
+	<div>
+		<label for="street" class="label">Street Name</label>
+		  <input name="street1" type="text" id="street1" class = "required" onkeyup="sync()" form="signup" title="Please add a street address for this customer.">
+	</div>
+	<div>
+		<label for="city" class="label">City Name</label>
+		  <input name="city1" type="text" id="city1" class = "required" onkeyup="sync()" form="signup" title="Please add a city for this customer.">
+		 </div> 
+		 <div>
+		<label for="state" class="label">State Name</label>
+		  <input name="state1" type="text" id="state1" class = "required" onkeyup="sync()" form="signup" title="Please add a state for this customer.">
+		  </div>
+		  <div>
+		<label for="zip" class="label">Zip Code Number</label>
+		  <input name="zip1" type="text" id="zip1" class = "required" onkeyup="sync()" form="signup" title="Please add a zip code for this customer." oninput="validateNumber(this);">
+		</div>
+	  <div>
+		<label for="contact" class="label">Contact Number</label>
+		  <input name="contact" type="text" id="contact1" class = "required" onkeyup="sync()" title="Please add a phone number for the customer.">
+			
+		</div>
+		
+		 <div>
+		<label for="contact" class="label">Contact Email</label>
+		<input name="email" type="text" id="email1" class = "required" onkeyup="sync()" title="Please add an email address for the customer.">
+			
+		</div>
+		
+		 <div>
+		<label for="month" class="label">Month</label>
+		<input name="month1" type="text" id="month1" class = "required" onkeyup="sync()" title="Please add the month of the estimation.">
+		</div>
+		<div>
+		<label for="day" class="label">Day</label>
+		<input name="day1" type="text" id="day1" class = "required" onkeyup="sync()" title="Please add the day of the estimation." oninput="validateNumber(this);">
+		</div>
+		<div>
+		<label for="year" class="label">Year</label>
+		<input name="year1" type="text" id="year1" class = "required" onkeyup="sync()" title="Please add the year of the estimation." oninput="validateNumber(this);">
+			
+		</div>
+		
+	
+			<div>
+		<label for="estname" class="label">Estimator Name </label>
+		  <input name="estname" type="text" class="required" id="estname" title="Please type estimator's name.">
+		</div>
+			
+			<label for="comments" class="label">Type of job</label>
+			<div class="indent">
+				<input  type="radio" name="spam" id="yes" value="yes" class="required" title="Please select an option">
+				<label for="res">Residential</label>
+				<input type="radio" name="spam" id="definitely" value="definitely">
+				<label for="comm">Commercial</label>
+			</div>
+			
+			<div>
+				<input name="submit" type="submit" id="submit" value="Submit" onclick="show_alert()">
+			</div>
+	  </form>
+</div>
+
+
+<!-- <h1> Confirm the information of the form below!</h1>
+<div>
+<label>First name</label>
+<input type="text" name="n2" id="name2"/>
+</div>
+<div>
+<label>Last name</label>
+<input type="text" name="l2" id="lastname2"/>
+</div>
+<div>
+<label>House Number</label>
+<input type="text" name="house2" id="house2"/>
+</div>
+<div>
+<label>Street</label>
+<input type="text" name="street2" id="street2"/>
+</div>
+<div>
+<label>City</label>
+<input type="text" name="city2" id="city2"/>
+</div>
+<div>
+<label>State</label>
+<input type="text" name="state2" id="state2"/>
+</div>
+<div>
+<label>Zip</label>
+<input type="text" name="zip2" id="zip2"/>
+</div>
+<div>
+<label>Contact Number</label>
+<input type="text" name="contact2" id="contact2"/>
+</div>
+<div>
+<label>Contact Email</label>
+<input type="text" name="email2" id="email2"/>
+</div>
+<div>
+<label>Month</label>
+<input type="text" name="month2" id="month2"/>
+<label>Day</label>
+<input type="text" name="day2" id="day2"/>
+<label>Year</label>
+<input type="text" name="year2" id="year2"/>
+ -->
+</div>
+</div>
+
+
+
+
+
+<div id="Paris" class="tabcontent">
+  	<div style="background-color:#2f3036">
+	<form action="process.html" method="post" name="signup" id="signup">
+	  <div>
+	  <label for="roomtype" class="label">Room Type </label>
+			<div class="indent">
+		<input type="checkbox" name="room" value="kitchen" form="signup" class="required" title="Select the type of room">Kitchen
+		<input type="checkbox" name="room" value="Living" form="signup">Living
+		<input type="checkbox" name="room" value="great" form="signup">Great
+		<input type="checkbox" name="room" value="den" form="signup">Den<br>
+		<input type="checkbox" name="room" value="bed" form="signup">Bed
+		<input type="checkbox" name="room" value="bath" form="signup">Bath
+		<input type="checkbox" name="room" value="closet" form="signup">Closet
+		<input type="checkbox" name="room" value="hall" form="signup">Hall<br>
+		<input type="checkbox" name="room" value="garage" form="signup">Garage
+		<input type="checkbox" name="room" value="staircase" form="signup">Staircase
+		<input type="checkbox" name="room" value="storage" form="signup">Storage
+		<input type="checkbox" name="room" value="other" form="signup">Other
+				</div>
+		</div>
+	 
+	 <div>
+		<label for="name" class="label">Dimensions </label>
+		
+			<div class="indent">
+			<input name="width1" type="text" id="widthname1" class = "required" onkeyup="sync()" form="signup" title="Please add the height dimension for this room." oninput="validateNumber(this);" placeholder = "Width">
+			</div>
+			
+			<div class = "indent">
+			 <input name="name" type="text" class="required" id="depth1" title="Please add the depth dimension for this room." onkeyup="sync()" oninput="validateNumber(this);" placeholder = "Depth">
+			</div>
+			
+			<div class = "indent">
+			 <input name="name" type="text" class="required" id="height1" title="Please add the height dimension for this room." onkeyup="sync()" oninput="validateNumber(this);" placeholder = "Height">
+			</div>
+	</div>
+	
+	 <div>
+		<label for="doorcount" class="label">Number of Doors</label>
+		<input name="doorcount" type="text" class="required" id="door1" title="Please add the door count for this room." onkeyup="sync()" oninput="validateNumber(this);">
+	</div>
+	
+	<div>
+	<label for="ceiling" class="label">Ceiling</label>
+			<div class="indent">
+				<input  type="radio" name="spam" id="ceilingyes" value="yes" class="required" title="Please select an option">
+				<label for="ceilingyes">Yes</label>
+				<input type="radio" name="spam" id="ceilingno" value="definitely">
+				<label for="ceilingno">No</label>
+			</div>
+	</div>
+	
+	<div>
+	<label for="baseboard" class="label">Baseboards</label>
+			<div class="indent">
+				<input  type="radio" name="spam" id="baseboardyes" value="yes" class="required" title="Please select an option">
+				<label for="baseboardyes">Yes</label>
+				<input type="radio" name="spam" id="baseboardgno" value="definitely">
+				<label for="basebaordno">No</label>
+			</div>
+	</div>
+	
+	<div>
+		<label for="spec" class="label">Specialty Design</label>
+		<input name="spec1" type="textarea" id="spec1" onkeyup="sync()" form="signup" title="Please add a specialty design for this customer.">
+	 </div> 
+		 
+		 
+	 <div>
+	<label for="wallrecon" class="label">Wall Reconditioning</label>
+			<div class="indent">
+				<input  type="radio" name="spam" id="wallreconyes" value="yes">
+				<label for="wallreconyes">Yes</label>
+				<input type="radio" name="spam" id="baseboardgno" value="definitely">
+				<label for="wallreconno">No</label>
+			</div>
+	</div>
+	
+	<div>
+	<label for="baseboard" class="label">Fireplace</label>
+			<div class="indent">
+				<input  type="radio" name="spam" id="fireplaceyes" value="yes">
+				<label for="fireplaceyes">Yes</label>
+				<input type="radio" name="spam" id="baseboardgno" value="definitely">
+				<label for="fireplaceno">No</label>
+			</div>
+	</div>
+
+			<div>
+				<input name="submit" type="submit" id="submit" value="Submit" onclick="show_alert()">
+			</div>
+	</div>
+	 </form>
+	 
+	 
+<h1> Confirm the information of the form below!</h1>
+
+<div>
+<label >Room Dimensions:  </label>
+<input type="text" name="w2" id="width2"/>
+<input type="text" name="d2" id="depth2"/>
+<input type="text" name="n2" id="height2"/>
+</div>
+
+<div>
+<label>Door count: </label>
+<input type="text" name="doorcount" id="door2" />
+
+</div>
+</div>
+
+
+</div>
+
+<div id="Tokyo" class="tabcontent">
+  <div style="background-color:#2f3036">
+	<form action="process.html" method="post" name="signup" id="signup">
+	  <div>
+	  <label for="roomtype" class="label">Repair </label>
+			<div class="indent">
+		<input type="checkbox" name="room" value="kitchen" form="signup" class="required" title="Select the type of room">Outlet
+		<input type="checkbox" name="room" value="kitchen" form="signup">Box
+		<input type="checkbox" name="room" value="kitchen" form="signup">Panel
+		<input type="checkbox" name="room" value="kitchen" form="signup">Switch
+		<input type="checkbox" name="room" value="kitchen" form="signup">Fixture
+		</div>
+		<div class="indent">
+		<label> Appliance Number </label>
+		<input type="text" id="appnum" class="required" onkeyup="sync()" form="signup" title="Please add the appliance number." oninput="validateNumber(this);">
+				</div>
+		</div>
+	 
+	 
+	   <div>
+	  <label for="replace" class="label">Replace </label>
+			<div class="indent">
+		<input type="checkbox" name="room" value="kitchen" form="signup" class="required" title="Select the type of room">Outlet
+		<input type="checkbox" name="room" value="kitchen" form="signup">Box
+		<input type="checkbox" name="room" value="kitchen" form="signup">Panel
+		<input type="checkbox" name="room" value="kitchen" form="signup">Switch
+		<input type="checkbox" name="room" value="kitchen" form="signup">Fixture
+		</div>
+		<div class="indent">
+		<label> Appliance Number </label>
+		<input type="text" id="appnumreplace" class="required" onkeyup="sync()" form="signup" title="Please add the appliance number." oninput="validateNumber(this);">
+				</div>
+		</div>
+	 
+	 
+	   <div>
+	  <label for="rewire" class="label">Rewire </label>
+			<div class="indent">
+		<input type="checkbox" name="room" value="kitchen" form="signup" class="required" title="Select the type of room">Outlet
+		<input type="checkbox" name="room" value="kitchen" form="signup">Box
+		<input type="checkbox" name="room" value="kitchen" form="signup">Panel
+		<input type="checkbox" name="room" value="kitchen" form="signup">Switch
+		<input type="checkbox" name="room" value="kitchen" form="signup">Fixture
+		</div>
+		<div class="indent">
+		<label> Appliance Number: </label>
+		<input type="text" id="appnumrewire" class="required" onkeyup="sync()" form="signup" title="Please add the appliance number." oninput="validateNumber(this);">
+				</div>
+		</div>
+	 
+	 
+	 <div>
+	<label for="codeinspec" class="label">Code Inspection</label>
+			<div class="indent">
+				<input  type="radio" name="spam" id="codeyes" value="yes" class="required" title="Please select an option">
+				<label for="codeyes">Yes</label>
+				<input type="radio" name="spam" id="codeno" value="definitely">
+				<label for="codeno">No</label>
+			</div>
+	</div>
+	 
+	 
+	    <div>
+	  <label for="roomtype" class="label">Ceiling Fixture </label>
+			<div class="indent">
+		<input type="checkbox" name="ceilingfix" value="small" form="signup" class="required" title="Select the type of room">Small
+		<input type="checkbox" name="ceilingfix" value="Medium" form="signup">Medium
+		<input type="checkbox" name="ceilingfix" value="Large" form="signup">Large
+		<input type="checkbox" name="ceilingfix" value="Fans" form="signup">Fans
+		</div>
+		<div class="indent">
+		<label>Number: </label>
+		<input type="text" id="appnum" class="required" onkeyup="sync()" form="signup" title="Please add the appliance number." oninput="validateNumber(this);">
+				</div>
+		</div>
+	 
+	 
+	 
+	    <div>
+	  <label for="roomtype" class="label">Lighting Fixture </label>
+			<div class="indent">
+		<input type="checkbox" name="lightfix" value="Small" form="signup" class="required" title="Select the type of room">Small
+		<input type="checkbox" name="lightfix" value="Medium" form="signup">Medium
+		<input type="checkbox" name="lightfix" value="Large" form="signup">Large
+		<input type="checkbox" name="lightfix" value="Recessed" form="signup">Recessed
+		</div>
+		<div class="indent">
+		<label>Specialty Number: </label>
+		<input type="text" id="specnum" class="required" onkeyup="sync()" form="signup" title="Please add the appliance number." oninput="validateNumber(this);">
+				</div>
+		</div>
+	 
+			<div>
+				<input name="submit" type="submit" id="submit" value="Submit" onclick="show_alert()">
+			</div>
+	 
+	</div>
+	 </form>
+</div>
+
+
+<script>
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+
+
+
+
+
+</body>
+</html>
